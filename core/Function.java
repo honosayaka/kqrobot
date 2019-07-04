@@ -20,13 +20,8 @@ public class Function {
             JSON json = JSON.parse(result);
             String data = json.get("data").getString();
             JSONArray jsObj = new JSONArray(data);
-
-                WeatherBean w = new WeatherBean(jsObj.getJSONObject(0));
-                return w.toString();
-
-
-
-
+            WeatherBean w = new WeatherBean(jsObj.getJSONObject(0));
+            return w.toString();
         }catch (Exception e){
             System.out.println(e);
         }
@@ -43,8 +38,6 @@ public class Function {
         }else {
             MySocketClient.client.sendToGroup(MySocketClient.SG,"早上好！\\n"+content);
         }
-
-
     }
 
     public static void main(String[] args) {
