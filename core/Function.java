@@ -2,13 +2,11 @@ package core;
 
 import cc.plural.jsonij.JSON;
 import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Function {
     public static String getWeather(String city){
@@ -36,6 +34,18 @@ public class Function {
     }
 
 
+
+    public  static void hello(int type){
+        String content = getWeather("上海");
+        if(type == 1){
+            MySocketClient.client.sendToGroup(MySocketClient.SG,"晚上好！\\n"+content);
+            return;
+        }else {
+            MySocketClient.client.sendToGroup(MySocketClient.SG,"早上好！\\n"+content);
+        }
+
+
+    }
 
     public static void main(String[] args) {
 

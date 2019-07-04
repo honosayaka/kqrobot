@@ -24,7 +24,7 @@ class WeatherBean{
 
         @Override
         public String toString() {
-            return date+" "+ "空气质量 "+air+"\n"+ timeLine;
+            return date+" "+ "空气质量 "+air+"\\n"+ timeLine;
         }
 
         String getTimeLine(JSONArray array){
@@ -39,7 +39,7 @@ class WeatherBean{
             }
             StringBuilder sb = new StringBuilder();
             for(TimeBean each : list){
-                sb.append(each.toString()+"\n");
+                sb.append(each.toString());
             }
             return sb.toString();
 
@@ -61,7 +61,7 @@ class WeatherBean{
             }
             @Override
             public String toString(){
-                return this.time+" "+this.weather+" "+this.tem+"\n"+this.wind;
+                return this.time+" "+this.weather+" "+this.tem+this.wind+"\\n";
             }
         }
     }

@@ -1,12 +1,22 @@
 package core;
 
-import java.text.SimpleDateFormat;
-import java.util.logging.SimpleFormatter;
+
 
 public class Test {
-    public static void main(String[] args) {
-        SimpleDateFormat dateFormat = new  SimpleDateFormat("HH");
-        String date =dateFormat.format(System.currentTimeMillis());
-        System.out.println(date);
+    public static void main(String[] args) throws Exception {
+        System.out.println("T1");
+        Thread.sleep(100);
+        new Thread(new T()).start();
+    }
+
+
+
+
+
+}
+class T implements Runnable{
+    @Override
+    public void run() {
+        System.out.println("T2");
     }
 }

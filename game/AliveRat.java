@@ -250,7 +250,15 @@ public class AliveRat {
                     rs();level7();rs();
                 }
                 break;
+            case 7:
 
+
+
+
+
+
+
+                break;
         }
         if(content.equals("end")){
             gameOver();

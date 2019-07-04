@@ -7,8 +7,8 @@ import java.net.URI;
 public class Logic {
     public static void main(String[] args) throws Exception {
         MySocketClient.startConnect();
-
- //       Thread.sleep(1000l);
+        System.out.println("already");
+        new Thread(new TimeChecker()).start();
      //   new Thread(new TimeChecker()).start();
     }
 }

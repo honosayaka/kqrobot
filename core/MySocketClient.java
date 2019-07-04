@@ -87,7 +87,7 @@ public class MySocketClient extends WebSocketClient {
     public void onOpen( ServerHandshake handshake ) {
 
         System.out.println("你已经连接到: " + getURI());
-        isOnline = !isOnline;
+        isOnline = true;
     }
 
     @Override

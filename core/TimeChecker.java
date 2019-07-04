@@ -1,31 +1,36 @@
 package core;
 
-import core.Function;
 
 import java.text.SimpleDateFormat;
 
 public class TimeChecker implements Runnable{
     SimpleDateFormat dateFormat = new  SimpleDateFormat("HH");
-    boolean sended = false;
     @Override
     public void run() {
+        if (!MySocketClient.isOnline){
+            rest(10000);
+        }
+            System.out.println("TimeChecker Start to Run!!");
+
+
         while (true){
-            String date =dateFormat.format(System.currentTimeMillis());
-            if(date.equals("05") && ! sended){
-                MySocketClient.client.sendToGroup(MySocketClient.SG,"早上好！\n"+ Function.getWeather("上海"));
-                sended = true;
-            }else if(date.equals("20") && ! sended){
-                MySocketClient.client.sendToGroup(MySocketClient.SG,"晚上好！\n"+Function.getWeather("上海"));
-                sended = true;
-            }else if(date.equals("21")||date.equals("08")){
-                sended = false;
+            String date =dateFormat.format(System.currentTimeMillis());//type1代表晚上
+            if(date.equals("06")){
+                Function.hello(2);
+                rest(1000*60*120l);
+            }else if(date.equals("20")){
+                Function.hello(1);
+                rest(1000*60*120l);
             }
-            try {
-                Thread.sleep(1800000l);
-            }catch (Exception e){
-                System.out.println(e);
-                MySocketClient.client.sendToPerson(675916756,"有错误！");
-            }
+            rest(600000l);
+        }
+    }
+    public void rest(long mill){
+        try {
+            Thread.sleep(mill);
+        }catch (Exception e){
+            System.out.println(e);
+            MySocketClient.client.sendToPerson(675916756,"有错误！");
         }
     }
 }
