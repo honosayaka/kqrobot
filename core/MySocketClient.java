@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class MySocketClient extends WebSocketClient {
 
-    public static int SG = 1009358004;
-  //  public static int SG = 523175264;
+   // public static int SG = 1009358004;
+    public static int SG = 523175264;
 
     MySocketClient(URI uri, Draft draft){
             super(uri, draft);
